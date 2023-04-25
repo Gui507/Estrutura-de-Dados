@@ -1,19 +1,26 @@
-/* Importa Bibliotecas */
+/*
+    Esse programa simula o funcionamento de uma pilha
+*/
+
+// Importa Bibliotecas.
 #include <stdio.h>
 #include <stdlib.h>
 #define MAXTAM 100
-/* Define a estrutura. */
+
+// Define a estrutura.
 typedef struct 
 {
-    int Item[MAXTAM]; /* Tamanho Máximo. */
-    int Topo; /* Topo. */
-} TPilha; /* Nome da Estrutura. */
-/* Iniciar a pilha */
+    int Item[MAXTAM]; // Tamanho Máximo.
+    int Topo; // Topo.
+} TPilha; // Nome da Estrutura.
+
+// Inicia a pilha.
 void Tpilha_Inicia(TPilha *p)
 {
-    p -> Topo = -1; /* Pilha inicia vazia. */
+    p -> Topo = -1; // Pilha inicia vazia.
 }
-/* Verifica se a Pilha está vazia. */
+
+// Verifica se a Pilha está vazia.
 int TPilha_Vazia(TPilha *p) 
 {
     if (p -> Topo == -1) {
@@ -23,7 +30,8 @@ int TPilha_Vazia(TPilha *p)
         return 0;
     }
 }
-/* Verifica se a Pilha está cheia. */
+
+// Verifica se a Pilha está cheia.
 int TPilha_Cheia(TPilha *p)
 {
     if (p -> Topo == MAXTAM-1) {
@@ -33,7 +41,8 @@ int TPilha_Cheia(TPilha *p)
         return 0;
     }
 }
-/* Insere elementos na pilha. */
+
+// Insere elementos na pilha.
 void TPilha_Insere (TPilha *p, int x) 
 {
     if (TPilha_Cheia(p) == 1)
@@ -46,7 +55,8 @@ void TPilha_Insere (TPilha *p, int x)
         p -> Item[p -> Topo] = x;
     }
 }
-/* Retira eleentos da pilha. */
+
+// Retira elementos da pilha.
 int TPilha_Retira (TPilha *p) 
 {
     int aux;
@@ -61,17 +71,21 @@ int TPilha_Retira (TPilha *p)
         return aux;
     }
 }
-/* Programa Principal. */
+
+// Programa Principal.
 int main()
 {
-    TPilha *p = (TPilha*)malloc(sizeof(TPilha)); /* Alocação de espaço na memória*/
-   /*Inicialização da pilha. */
+    TPilha *p = (TPilha*)malloc(sizeof(TPilha)); // Alocação de espaço na memória.
+
+   // Inicialização da pilha.
     Tpilha_Inicia(p);
-   /*Inserção de elementos na Pilha*/
+
+   //Inserção de elementos na Pilha.
     TPilha_Insere(p, 1);
     TPilha_Insere(p, 2);
     TPilha_Insere(p, 3);
-    /*Remoção de elementos da Pilha*/
+
+    //Remoção de elementos da Pilha.
     int aux;
     aux = TPilha_Retira(p);
     printf("\n SAIU %d", aux);
@@ -84,7 +98,3 @@ int main()
 
     return 0;
 }
-/*
-void - usada quando a função não retorna nenhum valor
-tipo nome(){} - usado para retornar valores
-*/
